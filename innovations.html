@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Innovations — NEOVIA</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="announcement-bar">
+  <span>⚡ LIVE TELEMETRY:</span> Autonomous Network Operating at 99.9% Efficiency • Zero Emissions Active
+</div>
+<header><div class="container nav"><a class="logo" href="index.html">NEO<span>VIA</span></a><nav><a href="index.html">Home</a><a href="vehicles.html">Vehicles</a><a class="active" href="innovations.html">Innovations</a><a href="routes.html">Mobility</a><a href="simulator.html">National Simulator</a><a href="about.html">About</a></nav><a class="btn" href="simulator.html">Launch Simulator</a></div></header>
+<section class="page-hero"><div class="container"><div class="badge">THE TECHNOLOGY</div><h1>Ideas becoming<br>infrastructure.</h1><p class="lead">The future of transportation isn't just about new vehicles. It is about building an intelligent ecosystem around every journey.</p></div></section>
+<section><div class="container"><div class="timeline">
+<div class="step"><div class="dot"></div><h3>01 — Artificial Intelligence</h3><p>Machine learning can help vehicles interpret their surroundings, optimize routes and anticipate changing travel demand.</p></div>
+<div class="step"><div class="dot"></div><h3>02 — Clean Energy</h3><p>Batteries, renewable electricity and alternative propulsion technologies are changing how transportation is powered.</p></div>
+<div class="step"><div class="dot"></div><h3>03 — Connected Infrastructure</h3><p>Roads, stations, traffic signals and vehicles can share information to coordinate movement across an entire city.</p></div>
+<div class="step"><div class="dot"></div><h3>04 — Autonomous Systems</h3><p>Automation is progressing across cars, logistics, public transit and aviation, with safety remaining a central requirement.</p></div>
+</div></div></section>
+<section><div class="container"><div class="grid cards-3"><article class="card"><div class="icon">⌁</div><h3>Vehicle-to-Everything</h3><p>Vehicles communicating with infrastructure, pedestrians and other vehicles can create more informed transportation networks.</p></article><article class="card"><div class="icon">◈</div><h3>Smart Charging</h3><p>Intelligent charging can coordinate electric vehicles with energy demand and renewable generation.</p></article><article class="card"><div class="icon">△</div><h3>Digital Twins</h3><p>Virtual models of cities can help planners test transport changes before deploying them in the real world.</p></article></div></div></section>
+
+<section>
+  <div class="container">
+    <div class="newsletter-section">
+      <div class="badge">STAY UPDATED</div>
+      <h2>Join the Mobility Revolution</h2>
+      <p style="color:var(--muted);margin-top:8px;">Receive monthly insights on autonomous infrastructure and clean transit concepts.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to NEOVIA insights!');">
+        <input type="email" placeholder="Enter your email address..." required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- AI Assistant Widget -->
+<div class="chatbot-widget">
+  <button class="chat-toggle" onclick="toggleChat()">💬</button>
+  <div class="chat-box" id="chat-box">
+    <div class="chat-header"><span>Neovia AI Assistant</span><span style="cursor:pointer" onclick="toggleChat()">✕</span></div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">Have questions about our digital twins or AI routing? Ask me anytime!</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type a question..." onkeypress="handleChat(event)">
+      <button class="btn" style="padding:8px 12px;font-size:.8rem;" onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+<footer><div class="container footer-flex"><span>© 2026 NEOVIA</span><span>Innovation starts with imagination.</span></div></footer>
+
+<script>
+  function toggleChat() {
+    const box = document.getElementById('chat-box');
+    box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
+  }
+  function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const body = document.getElementById('chat-body');
+    if(!input.value.trim()) return;
+    body.innerHTML += `<div class="chat-msg user">${input.value}</div>`;
+    input.value = '';
+    setTimeout(() => {
+      body.innerHTML += `<div class="chat-msg bot">Our innovations form the core logic of the National Simulator.</div>`;
+      body.scrollTop = body.scrollHeight;
+    }, 600);
+  }
+  function handleChat(e) { if(e.key === 'Enter') sendChatMessage(); }
+</script>
+</body></html>

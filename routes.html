@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Mobility — NEOVIA</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="announcement-bar">
+  <span>⚡ LIVE TELEMETRY:</span> Autonomous Network Operating at 99.9% Efficiency • Zero Emissions Active
+</div>
+<header><div class="container nav"><a class="logo" href="index.html">NEO<span>VIA</span></a><nav><a href="index.html">Home</a><a href="vehicles.html">Vehicles</a><a href="innovations.html">Innovations</a><a class="active" href="routes.html">Mobility</a><a href="simulator.html">National Simulator</a><a href="about.html">About</a></nav><a class="btn" href="simulator.html">Launch Simulator</a></div></header>
+<section class="page-hero"><div class="container"><div class="badge">CONNECTED JOURNEYS</div><h1>Your city,<br>reimagined.</h1><p class="lead">A future journey can combine multiple modes without making you think about the transitions between them.</p></div></section>
+<section><div class="container"><div class="section-head"><div><div class="badge">A SAMPLE JOURNEY</div><h2>Pune → Mumbai</h2></div><p>Imagine a connected trip where each mode works together as one mobility network.</p></div>
+<div class="route"><div class="station"><small>08:00</small><h3>Home</h3><p>Shared autonomous shuttle</p></div><div class="line"></div><div class="station"><small>08:25</small><h3>Mobility Hub</h3><p>Smart rail connection</p></div></div>
+<div style="height:20px"></div>
+<div class="route"><div class="station"><small>08:40</small><h3>Express Rail</h3><p>High-speed intercity service</p></div><div class="line"></div><div class="station"><small>09:35</small><h3>Mumbai Hub</h3><p>Connected last-mile network</p></div></div>
+</div></section>
+
+<!-- Interactive Journey Calculator Feature -->
+<section style="background:rgba(255,255,255,.01);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="badge">INTERACTIVE TOOL</div><h2>Simulate Your Trip</h2></div>
+      <p>Estimate travel metrics across NEOVIA's integrated network.</p>
+    </div>
+    
+    <div class="calculator-box">
+      <div class="calc-form">
+        <div>
+          <label>Select Route Corridor</label>
+          <select id="calc-route" onchange="updateCalculator()">
+            <option value="pune-mumbai">Pune → Mumbai (Intercity)</option>
+            <option value="sub-urban">Downtown → Tech Park (Metro)</option>
+            <option value="air-link">City Core → International Air Hub</option>
+          </select>
+        </div>
+        <div>
+          <label>Primary Transit Mode</label>
+          <select id="calc-mode" onchange="updateCalculator()">
+            <option value="rail">High-Speed Rail + Shared EV</option>
+            <option value="air">Electric Air Mobility (E-VTOL)</option>
+            <option value="shuttle">Autonomous Shuttle Network</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-result">
+        <h4 id="res-time">55 mins</h4>
+        <p style="color:var(--muted);font-size:.9rem;">Estimated Total Journey Time</p>
+        <div style="margin-top:15px;padding-top:15px;border-top:1px solid var(--line);">
+          <span style="color:var(--green);font-weight:700;font-size:1.1rem;" id="res-carbon">14.2 kg</span>
+          <p style="color:var(--muted);font-size:.8rem;">CO₂ Saved vs Standard Combustion Car</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section><div class="container"><div class="grid cards-4"><article class="card"><div class="icon">🚉</div><h3>Rail</h3><p>Fast, high-capacity city and intercity connections.</p></article><article class="card"><div class="icon">🚗</div><h3>Shared EV</h3><p>Flexible first and last-mile transportation.</p></article><article class="card"><div class="icon">🚲</div><h3>Cycle</h3><p>Healthy, lightweight urban movement.</p></article><article class="card"><div class="icon">☁</div><h3>Air</h3><p>New aerial connections for selected journeys.</p></article></div></div></section>
+
+<!-- AI Assistant Widget -->
+<div class="chatbot-widget">
+  <button class="chat-toggle" onclick="toggleChat()">💬</button>
+  <div class="chat-box" id="chat-box">
+    <div class="chat-header"><span>Neovia AI Assistant</span><span style="cursor:pointer" onclick="toggleChat()">✕</span></div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">Need help planning a connected route or estimating transit times? Let me know!</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type a question..." onkeypress="handleChat(event)">
+      <button class="btn" style="padding:8px 12px;font-size:.8rem;" onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+<footer><div class="container footer-flex"><span>© 2026 NEOVIA</span><span>Mobility is a network, not a single vehicle.</span></div></footer>
+
+<script>
+  function updateCalculator() {
+    const route = document.getElementById('calc-route').value;
+    const mode = document.getElementById('calc-mode').value;
+    const timeEl = document.getElementById('res-time');
+    const carbonEl = document.getElementById('res-carbon');
+
+    if(route === 'pune-mumbai') {
+      if(mode === 'rail') { timeEl.innerText = '55 mins'; carbonEl.innerText = '14.2 kg saved'; }
+      else if(mode === 'air') { timeEl.innerText = '30 mins'; carbonEl.innerText = '11.5 kg saved'; }
+      else { timeEl.innerText = '1 hr 20 mins'; carbonEl.innerText = '12.8 kg saved'; }
+    } else if(route === 'sub-urban') {
+      if(mode === 'rail') { timeEl.innerText = '15 mins'; carbonEl.innerText = '4.1 kg saved'; }
+      else if(mode === 'air') { timeEl.innerText = '8 mins'; carbonEl.innerText = '3.5 kg saved'; }
+      else { timeEl.innerText = '22 mins'; carbonEl.innerText = '4.6 kg saved'; }
+    } else {
+      if(mode === 'rail') { timeEl.innerText = '40 mins'; carbonEl.innerText = '9.0 kg saved'; }
+      else if(mode === 'air') { timeEl.innerText = '18 mins'; carbonEl.innerText = '7.4 kg saved'; }
+      else { timeEl.innerText = '50 mins'; carbonEl.innerText = '8.2 kg saved'; }
+    }
+  }
+
+  function toggleChat() {
+    const box = document.getElementById('chat-box');
+    box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
+  }
+  function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const body = document.getElementById('chat-body');
+    if(!input.value.trim()) return;
+    body.innerHTML += `<div class="chat-msg user">${input.value}</div>`;
+    input.value = '';
+    setTimeout(() => {
+      body.innerHTML += `<div class="chat-msg bot">Our journey calculator gives instant estimates. For macro-scale simulations across entire regions, check out our National Simulator page!</div>`;
+      body.scrollTop = body.scrollHeight;
+    }, 600);
+  }
+  function handleChat(e) { if(e.key === 'Enter') sendChatMessage(); }
+</script>
+</body></html>

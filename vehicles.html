@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Vehicles — NEOVIA</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="announcement-bar">
+  <span>⚡ LIVE TELEMETRY:</span> Autonomous Network Operating at 99.9% Efficiency • Zero Emissions Active
+</div>
+<header><div class="container nav"><a class="logo" href="index.html">NEO<span>VIA</span></a><nav><a href="index.html">Home</a><a class="active" href="vehicles.html">Vehicles</a><a href="innovations.html">Innovations</a><a href="routes.html">Mobility</a><a href="simulator.html">National Simulator</a><a href="about.html">About</a></nav><a class="btn" href="simulator.html">Launch Simulator</a></div></header>
+<section class="page-hero"><div class="container"><div class="badge">FUTURE FLEET</div><h1>Vehicles<br>without limits.</h1><p class="lead">Explore the emerging categories of transportation designed around cleaner energy, automation and connected experiences.</p></div></section>
+
+<section>
+  <div class="container">
+    <div class="filter-container">
+      <button class="filter-btn active" onclick="filterVehicles('all', this)">All Concepts</button>
+      <button class="filter-btn" onclick="filterVehicles('electric', this)">Electric & Clean</button>
+      <button class="filter-btn" onclick="filterVehicles('autonomous', this)">Autonomous & AI</button>
+      <button class="filter-btn" onclick="filterVehicles('air', this)">Air & Fast Transit</button>
+    </div>
+
+    <div class="grid cards-3" id="vehicle-grid">
+      <article class="card vehicle" data-category="autonomous electric">
+        <div class="vehicle-art">🚘</div>
+        <div class="vehicle-body"><h3>Autonomous EV</h3><p>Electric vehicles equipped with advanced sensing and intelligent driving systems.</p><div class="tags"><span class="tag">AI DRIVE</span><span class="tag">ELECTRIC</span></div></div>
+      </article>
+      <article class="card vehicle" data-category="air">
+        <div class="vehicle-art">🚆</div>
+        <div class="vehicle-body"><h3>Next-Gen Rail</h3><p>High-capacity rail networks connecting cities with efficient, comfortable journeys.</p><div class="tags"><span class="tag">FAST TRANSIT</span><span class="tag">LOW CARBON</span></div></div>
+      </article>
+      <article class="card vehicle" data-category="air">
+        <div class="vehicle-art">🛸</div>
+        <div class="vehicle-body"><h3>Air Mobility</h3><p>Electric vertical takeoff aircraft could create new links above congested urban roads.</p><div class="tags"><span class="tag">E-VTOL</span><span class="tag">URBAN AIR</span></div></div>
+      </article>
+      <article class="card vehicle" data-category="autonomous electric">
+        <div class="vehicle-art">🚌</div>
+        <div class="vehicle-body"><h3>Smart Transit</h3><p>Connected buses and shuttles adapting routes to passenger demand in real time.</p><div class="tags"><span class="tag">CONNECTED</span><span class="tag">SHARED</span></div></div>
+      </article>
+      <article class="card vehicle" data-category="electric">
+        <div class="vehicle-art">🚲</div>
+        <div class="vehicle-body"><h3>Micro Mobility</h3><p>Lightweight bikes and scooters helping people solve the first and last mile.</p><div class="tags"><span class="tag">CITY</span><span class="tag">ACTIVE</span></div></div>
+      </article>
+      <article class="card vehicle" data-category="autonomous air">
+        <div class="vehicle-art">🚁</div>
+        <div class="vehicle-body"><h3>Rescue Drones</h3><p>Autonomous aerial systems supporting emergency response and hard-to-reach areas.</p><div class="tags"><span class="tag">AUTONOMOUS</span><span class="tag">SAFETY</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- AI Assistant Widget -->
+<div class="chatbot-widget">
+  <button class="chat-toggle" onclick="toggleChat()">💬</button>
+  <div class="chat-box" id="chat-box">
+    <div class="chat-header"><span>Neovia AI Assistant</span><span style="cursor:pointer" onclick="toggleChat()">✕</span></div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">Interested in our vehicle specs? Let me know which concept you'd like to explore.</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type a question..." onkeypress="handleChat(event)">
+      <button class="btn" style="padding:8px 12px;font-size:.8rem;" onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+<footer><div class="container footer-flex"><span>© 2026 NEOVIA</span><span>Vehicles are concepts for future mobility.</span></div></footer>
+
+<script>
+  function filterVehicles(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    document.querySelectorAll('#vehicle-grid .vehicle').forEach(card => {
+      if(category === 'all' || card.getAttribute('data-category').includes(category)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function toggleChat() {
+    const box = document.getElementById('chat-box');
+    box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
+  }
+  function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const body = document.getElementById('chat-body');
+    if(!input.value.trim()) return;
+    body.innerHTML += `<div class="chat-msg user">${input.value}</div>`;
+    input.value = '';
+    setTimeout(() => {
+      body.innerHTML += `<div class="chat-msg bot">Our vehicle concepts are fully integrated into the National Simulator platform for testing.</div>`;
+      body.scrollTop = body.scrollHeight;
+    }, 600);
+  }
+  function handleChat(e) { if(e.key === 'Enter') sendChatMessage(); }
+</script>
+</body></html>

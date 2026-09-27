@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>NEOVIA — Future of Transportation</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="announcement-bar">
+  <span>⚡ LIVE TELEMETRY:</span> Autonomous Network Operating at 99.9% Efficiency • Zero Emissions Active
+</div>
+<header><div class="container nav"><a class="logo" href="index.html">NEO<span>VIA</span></a><nav><a class="active" href="index.html">Home</a><a href="vehicles.html">Vehicles</a><a href="innovations.html">Innovations</a><a href="routes.html">Mobility</a><a href="simulator.html">National Simulator</a><a href="about.html">About</a></nav><a class="btn" href="simulator.html">Launch Simulator</a></div></header>
+<main>
+<section class="hero"><div class="container hero-grid"><div><div class="badge">● THE NEXT ERA OF MOVEMENT</div><h1>MOVE<br><span>BEYOND.</span></h1><p>Transportation is becoming cleaner, smarter and more connected. Discover a future where autonomous vehicles, intelligent infrastructure and sustainable energy move people forward.</p><div class="actions"><a class="btn" href="vehicles.html">Explore Vehicles →</a><a class="btn alt" href="simulator.html">Try National Simulator</a></div></div>
+<div class="visual"><div class="orbit"></div><div class="orbit two"></div><div class="core"></div><div class="float f1">AI NAVIGATION</div><div class="float f2">ZERO EMISSIONS</div><div class="float f3">SMART CITIES</div><div class="float f4">AUTONOMOUS</div></div></div></section>
+<div class="stats"><div class="container stat-grid"><div class="stat"><div class="number">100%</div><small>Electric vision</small></div><div class="stat"><div class="number">24/7</div><small>Connected mobility</small></div><div class="stat"><div class="number">0</div><small>Tailpipe emissions</small></div><div class="stat"><div class="number">∞</div><small>Possibilities</small></div></div></div>
+<section><div class="container"><div class="section-head"><div><div class="badge">WHY IT MATTERS</div><h2>One future.<br>Many ways to move.</h2></div><p>From urban air mobility to autonomous public transport, tomorrow's transportation ecosystem will connect people and places in entirely new ways.</p></div>
+<div class="grid cards-3"><article class="card"><div class="icon">⚡</div><h3>Electric by Design</h3><p>Cleaner propulsion systems are reshaping cars, buses, trains and aircraft while reducing dependence on fossil fuels.</p></article><article class="card"><div class="icon">◉</div><h3>Intelligence Everywhere</h3><p>AI can help vehicles understand roads, predict demand and coordinate journeys with connected infrastructure.</p></article><article class="card"><div class="icon">↗</div><h3>Mobility for Everyone</h3><p>Future networks can combine rail, road, cycling, walking and shared mobility into one seamless journey.</p></article></div></div></section>
+
+<section>
+  <div class="container">
+    <div class="newsletter-section">
+      <div class="badge">STAY UPDATED</div>
+      <h2>Join the Mobility Revolution</h2>
+      <p style="color:var(--muted);margin-top:8px;">Receive monthly insights on autonomous infrastructure and clean transit concepts.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to NEOVIA insights!');">
+        <input type="email" placeholder="Enter your email address..." required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section><div class="container"><div class="banner"><div><div class="badge">START EXPLORING</div><h2>Test the National Simulator today.</h2></div><a class="btn" href="simulator.html">Launch Simulator →</a></div></div></section>
+</main>
+
+<!-- AI Assistant Widget -->
+<div class="chatbot-widget">
+  <button class="chat-toggle" onclick="toggleChat()">💬</button>
+  <div class="chat-box" id="chat-box">
+    <div class="chat-header"><span>Neovia AI Assistant</span><span style="cursor:pointer" onclick="toggleChat()">✕</span></div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">Hello! I'm your Neovia Mobility guide. How can I assist you with our autonomous network or simulator tools today?</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type a question..." onkeypress="handleChat(event)">
+      <button class="btn" style="padding:8px 12px;font-size:.8rem;" onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+<footer><div class="container footer-flex"><span>© 2026 NEOVIA</span><span>Designing the future of movement.</span><span>ISO 27001 Certified • GDPR Compliant</span></div></footer>
+
+<script>
+  function toggleChat() {
+    const box = document.getElementById('chat-box');
+    box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
+  }
+  function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const body = document.getElementById('chat-body');
+    if(!input.value.trim()) return;
+    
+    body.innerHTML += `<div class="chat-msg user">${input.value}</div>`;
+    const userText = input.value;
+    input.value = '';
+    
+    setTimeout(() => {
+      let reply = "That's a great question regarding sustainable infrastructure. You can test out these parameters directly in our National Simulator tool!";
+      if(userText.toLowerCase().includes('vehicle')) reply = "We feature Autonomous EVs, High-Speed Rail, and E-VTOL Air Mobility concepts in our Vehicles section.";
+      if(userText.toLowerCase().includes('simulator')) reply = "The National Simulator lets you adjust fleet density and clean energy inputs across regional transit corridors.";
+      body.innerHTML += `<div class="chat-msg bot">${reply}</div>`;
+      body.scrollTop = body.scrollHeight;
+    }, 600);
+  }
+  function handleChat(e) { if(e.key === 'Enter') sendChatMessage(); }
+</script>
+</body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>About — NEOVIA</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="announcement-bar">
+  <span>⚡ LIVE TELEMETRY:</span> Autonomous Network Operating at 99.9% Efficiency • Zero Emissions Active
+</div>
+<header><div class="container nav"><a class="logo" href="index.html">NEO<span>VIA</span></a><nav><a href="index.html">Home</a><a href="vehicles.html">Vehicles</a><a href="innovations.html">Innovations</a><a href="routes.html">Mobility</a><a href="simulator.html">National Simulator</a><a class="active" href="about.html">About</a></nav><a class="btn" href="simulator.html">Launch Simulator</a></div></header>
+<section class="page-hero"><div class="container"><div class="badge">ABOUT NEOVIA</div><h1>Designing how<br>we move next.</h1><p class="lead">NEOVIA is a fictional concept platform exploring how transportation, technology and sustainable cities could come together.</p></div></section>
+<section><div class="container"><div class="grid cards-3"><article class="card"><div class="icon">◎</div><h3>Our Vision</h3><p>Make movement cleaner, safer, more connected and easier to understand.</p></article><article class="card"><div class="icon">✦</div><h3>Our Focus</h3><p>Explore the intersection of electric mobility, automation, infrastructure and human-centered design.</p></article><article class="card"><div class="icon">→</div><h3>Our Question</h3><p>What if transportation could feel less like traffic and more like a coordinated system?</p></article></div></div></section>
+
+<section>
+  <div class="container">
+    <div class="newsletter-section">
+      <div class="badge">STAY UPDATED</div>
+      <h2>Join the Mobility Revolution</h2>
+      <p style="color:var(--muted);margin-top:8px;">Receive monthly insights on autonomous infrastructure and clean transit concepts.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to NEOVIA insights!');">
+        <input type="email" placeholder="Enter your email address..." required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section><div class="container"><div class="banner"><div><div class="badge">READY TO EXPLORE?</div><h2>Step into the next journey.</h2></div><a class="btn" href="simulator.html">Launch Simulator →</a></div></div></section>
+
+<!-- AI Assistant Widget -->
+<div class="chatbot-widget">
+  <button class="chat-toggle" onclick="toggleChat()">💬</button>
+  <div class="chat-box" id="chat-box">
+    <div class="chat-header"><span>Neovia AI Assistant</span><span style="cursor:pointer" onclick="toggleChat()">✕</span></div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">Welcome to Neovia's About page! Feel free to ask about our vision or simulation tools.</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type a question..." onkeypress="handleChat(event)">
+      <button class="btn" style="padding:8px 12px;font-size:.8rem;" onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+<footer><div class="container footer-flex"><span>© 2026 NEOVIA</span><span>Concept website • Frontend only</span></div></footer>
+
+<script>
+  function toggleChat() {
+    const box = document.getElementById('chat-box');
+    box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
+  }
+  function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const body = document.getElementById('chat-body');
+    if(!input.value.trim()) return;
+    body.innerHTML += `<div class="chat-msg user">${input.value}</div>`;
+    input.value = '';
+    setTimeout(() => {
+      body.innerHTML += `<div class="chat-msg bot">Neovia explores the future of sustainable movement through interactive simulation tools and cutting-edge concepts.</div>`;
+      body.scrollTop = body.scrollHeight;
+    }, 600);
+  }
+  function handleChat(e) { if(e.key === 'Enter') sendChatMessage(); }
+</script>
+</body></html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>National Simulator — NEOVIA</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="announcement-bar">
+  <span>⚡ LIVE TELEMETRY:</span> Autonomous Network Operating at 99.9% Efficiency • Zero Emissions Active
+</div>
+<header><div class="container nav"><a class="logo" href="index.html">NEO<span>VIA</span></a><nav><a href="index.html">Home</a><a href="vehicles.html">Vehicles</a><a href="innovations.html">Innovations</a><a href="routes.html">Mobility</a><a class="active" href="simulator.html">National Simulator</a><a href="about.html">About</a></nav><a class="btn" href="routes.html">Explore Mobility</a></div></header>
+
+<section class="page-hero"><div class="container"><div class="badge">MACRO INFRASTRUCTURE</div><h1>National Network<br>Simulator.</h1><p class="lead">Simulate city-wide autonomous fleets, clean energy integration, and surge traffic protocols in real time.</p></div></section>
+
+<section>
+  <div class="container">
+    <div class="simulator-layout">
+      <!-- Control Panel -->
+      <div class="sim-panel">
+        <h3>Simulation Parameters</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin-bottom:20px;">Configure variables to evaluate network throughput and environmental impact.</p>
+        
+        <div class="calc-form">
+          <div>
+            <label>Active Autonomous Fleet Size</label>
+            <select id="sim-fleet" onchange="runSimulation()">
+              <option value="50000">50,000 Units (Pilot Region)</option>
+              <option value="250000" selected>250,000 Units (Metropolitan Core)</option>
+              <option value="1000000">1,000,000 Units (Full National Grid)</option>
+            </select>
+          </div>
+          <div>
+            <label>Clean Energy Integration Mix</label>
+            <select id="sim-energy" onchange="runSimulation()">
+              <option value="50">50% Renewable (Solar/Wind)</option>
+              <option value="80" selected>80% Renewable (Optimized Grid)</option>
+              <option value="100">100% Zero-Emission Autonomous Microgrid</option>
+            </select>
+          </div>
+          <div>
+            <label>Traffic Demand Surge Scenario</label>
+            <select id="sim-surge" onchange="runSimulation()">
+              <option value="normal">Standard Commute Hours</option>
+              <option value="peak" selected>Peak Rush Hour / Mega-Event</option>
+              <option value="emergency">Emergency Evacuation Protocol</option>
+            </select>
+          </div>
+          <button class="btn" style="width:100%;margin-top:10px;" onclick="runSimulation()">Re-calculate Telemetry</button>
+        </div>
+      </div>
+
+      <!-- Real-time Output Dashboard -->
+      <div class="sim-panel" style="background:var(--bg2)">
+        <h3>Live Telemetry Output</h3>
+        <p style="color:var(--muted);font-size:.9rem;margin-bottom:20px;">Simulated performance metrics across regional nodes.</p>
+
+        <div class="sim-metrics">
+          <div class="sim-metric-card">
+            <small>Network Efficiency</small>
+            <div class="val" id="out-eff">99.4%</div>
+          </div>
+          <div class="sim-metric-card">
+            <small>Carbon Offset Rate</small>
+            <div class="val" id="out-carbon" style="color:var(--cyan)">482.1 t/hr</div>
+          </div>
+          <div class="sim-metric-card">
+            <small>Average Latency</small>
+            <div class="val" id="out-latency">3.1 ms</div>
+          </div>
+          <div class="sim-metric-card">
+            <small>Surge Resolution Time</small>
+            <div class="val" id="out-time">42 secs</div>
+          </div>
+        </div>
+
+        <div style="margin-top:25px;padding:20px;background:var(--card);border-radius:12px;border:1px solid var(--line);">
+          <span style="color:var(--cyan);font-weight:700;font-size:.9rem;">AI System Diagnostic Status</span>
+          <p style="color:var(--muted);font-size:.85rem;margin-top:5px;" id="out-status">All regional corridors operating under self-healing neural routing. Zero congestion bottlenecks reported.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI Assistant Widget -->
+<div class="chatbot-widget">
+  <button class="chat-toggle" onclick="toggleChat()">💬</button>
+  <div class="chat-box" id="chat-box">
+    <div class="chat-header"><span>Neovia AI Assistant</span><span style="cursor:pointer" onclick="toggleChat()">✕</span></div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-msg bot">Need help configuring simulator variables or understanding carbon offsets? Ask away!</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Type a question..." onkeypress="handleChat(event)">
+      <button class="btn" style="padding:8px 12px;font-size:.8rem;" onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+<footer><div class="container footer-flex"><span>© 2026 NEOVIA</span><span>National Simulator Engine v4.2</span><span>Secure Enterprise Environment</span></div></footer>
+
+<script>
+  function runSimulation() {
+    const fleet = document.getElementById('sim-fleet').value;
+    const energy = document.getElementById('sim-energy').value;
+    const surge = document.getElementById('sim-surge').value;
+    
+    let eff = '99.8%';
+    let carbon = '210.4 t/hr';
+    let latency = '2.4 ms';
+    let time = '30 secs';
+    let status = 'Autonomous nodes calibrated to optimal efficiency.';
+
+    if(fleet === '250000') {
+      eff = '99.4%';
+      carbon = '482.1 t/hr';
+      latency = '3.1 ms';
+      time = '42 secs';
+    } else if(fleet === '1000000') {
+      eff = '98.9%';
+      carbon = '1,650.8 t/hr';
+      latency = '4.8 ms';
+      time = '65 secs';
+      status = 'High-density national grid active. Quantum load balancing engaged.';
+    }
+
+    if(surge === 'emergency') {
+      eff = '99.9%';
+      latency = '1.2 ms';
+      time = '12 secs';
+      status = 'EMERGENCY PROTOCOL ACTIVE: Priority corridors cleared across all sectors.';
+    }
+
+    document.getElementById('out-eff').innerText = eff;
+    document.getElementById('out-carbon').innerText = carbon;
+    document.getElementById('out-latency').innerText = latency;
+    document.getElementById('out-time').innerText = time;
+    document.getElementById('out-status').innerText = status;
+  }
+
+  function toggleChat() {
+    const box = document.getElementById('chat-box');
+    box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
+  }
+  function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const body = document.getElementById('chat-body');
+    if(!input.value.trim()) return;
+    body.innerHTML += `<div class="chat-msg user">${input.value}</div>`;
+    input.value = '';
+    setTimeout(() => {
+      body.innerHTML += `<div class="chat-msg bot">Our simulator models real-time telemetry based on your fleet density and renewable energy inputs. Feel free to adjust the dropdowns to see how the metrics adapt!</div>`;
+      body.scrollTop = body.scrollHeight;
+    }, 600);
+  }
+  function handleChat(e) { if(e.key === 'Enter') sendChatMessage(); }
+</script>
+</body></html>
